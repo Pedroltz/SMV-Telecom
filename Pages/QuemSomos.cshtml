@@ -1,0 +1,87 @@
+@page
+@model SMVTelecom.Pages.QuemSomosModel
+@{
+    ViewData["Title"] = "Quem Somos";
+}
+
+<!-- Hero -->
+<section class="hero-gradient text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Quem Somos</h1>
+        <p class="text-blue-200 text-lg leading-relaxed">Conheça a história e os valores que guiam a SMV Telecom</p>
+    </div>
+</section>
+
+<!-- Nossa História -->
+<section class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-14">
+        <div class="flex-1">
+            <span class="text-smv-primary font-semibold text-sm uppercase tracking-widest">Nossa História</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-smv-text mt-2 mb-6">Mais de 15 anos conectando empresas</h2>
+            <p class="text-smv-gray leading-relaxed mb-4">
+                A SMV Telecom nasceu com a missão de levar soluções de comunicação corporativa de alta performance para empresas de todos os tamanhos. Ao longo de mais de 15 anos, consolidamos nossa experiência em videoconferência, áudio profissional, telefonia IP e ecossistema Microsoft Teams.
+            </p>
+            <p class="text-smv-gray leading-relaxed mb-4">
+                Trabalhamos com as principais marcas do mercado global — Logitech, AudioCodes e Poly/HP — entregando projetos completos: da consultoria ao suporte pós-venda.
+            </p>
+            <p class="text-smv-gray leading-relaxed">
+                Nossa equipe é formada por especialistas certificados, comprometidos com a excelência técnica e a satisfação do cliente.
+            </p>
+        </div>
+        <div class="flex-1 flex justify-center">
+            <img src="https://smvtelecom.com/wp-content/uploads/2024/04/quemsomos-removebg-preview.png"
+                 alt="Equipe SMV Telecom"
+                 class="max-w-sm w-full" />
+        </div>
+    </div>
+</section>
+
+<!-- Valores -->
+<section class="py-20 px-4 bg-smv-bg">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-smv-text mb-4">Nossos Valores</h2>
+            <p class="text-smv-gray text-lg">Os pilares que sustentam tudo o que fazemos</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-7 h-7 text-smv-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-smv-text mb-3">Excelência</h3>
+                <p class="text-smv-gray leading-relaxed">Buscamos a perfeição em cada projeto, desde a consultoria inicial até a entrega final e o suporte contínuo.</p>
+            </div>
+            <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-7 h-7 text-smv-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-smv-text mb-3">Parceria</h3>
+                <p class="text-smv-gray leading-relaxed">Tratamos cada cliente como um parceiro de longo prazo, construindo relacionamentos duradouros baseados em confiança.</p>
+            </div>
+            <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-7 h-7 text-smv-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-smv-text mb-3">Inovação</h3>
+                <p class="text-smv-gray leading-relaxed">Estamos sempre atualizados com as últimas tendências e tecnologias para oferecer o melhor ao seu negócio.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 px-4 bg-smv-accent text-white text-center">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4">Vamos conversar?</h2>
+        <p class="text-orange-100 mb-8">Fale com nossa equipe e descubra como podemos ajudar sua empresa.</p>
+        <a href="/#contato" class="bg-white text-smv-accent font-bold px-10 py-4 rounded-full hover:bg-orange-50 transition-colors shadow-lg">
+            Entre em Contato
+        </a>
+    </div>
+</section>

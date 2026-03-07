@@ -1,0 +1,52 @@
+@page
+@model SMVTelecom.Pages.Parceiras.LogitechModel
+@{
+    ViewData["Title"] = "Parceira Logitech";
+}
+
+<section class="hero-gradient text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+        <span class="inline-block bg-white/10 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Parceira</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Logitech</h1>
+        <p class="text-blue-200 text-lg">Soluções de colaboração para o local de trabalho moderno</p>
+    </div>
+</section>
+
+<section class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-14 items-center">
+        <div class="flex-1">
+            <h2 class="text-3xl font-bold text-smv-text mb-6">Logitech para Ambientes Corporativos</h2>
+            <p class="text-smv-gray leading-relaxed mb-4">
+                A Logitech é líder global em periféricos e soluções de colaboração para videoconferência. Seus produtos são certificados para Microsoft Teams, Zoom e Google Meet, garantindo a melhor experiência de reunião.
+            </p>
+            <p class="text-smv-gray leading-relaxed mb-6">
+                A SMV Telecom é parceira autorizada Logitech, oferecendo toda a linha de produtos para videoconferência: barras Rally, sistemas Tap, câmeras PTZ e muito mais.
+            </p>
+            <a href="/#contato" class="inline-block bg-smv-accent hover:bg-smv-accentDark text-white font-semibold px-8 py-3.5 rounded-full transition-colors">
+                Solicitar Demonstração
+            </a>
+        </div>
+        <div class="flex-1 grid grid-cols-2 gap-4">
+            @foreach (var item in new[] {
+                "Rally Bar", "Rally Bar Mini", "Rally Camera", "Tap IP",
+                "Sight", "Scribe", "Zone Wireless", "MeetUp"
+            })
+            {
+                <div class="bg-smv-bg rounded-xl p-4 border border-gray-100 text-center">
+                    <p class="font-semibold text-smv-text text-sm">@item</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-16 px-4 bg-smv-accent text-white text-center">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4">Conheça os produtos Logitech</h2>
+        <p class="text-orange-100 mb-6">Entre em contato com nossos especialistas para uma demonstração.</p>
+        <a href="https://wa.me/5511985152865" target="_blank" rel="noopener"
+           class="bg-white text-smv-accent font-bold px-8 py-3.5 rounded-full hover:bg-orange-50 transition-colors inline-block">
+            Falar no WhatsApp
+        </a>
+    </div>
+</section>

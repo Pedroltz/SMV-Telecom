@@ -1,0 +1,166 @@
+@page
+@model SMVTelecom.Pages.Solucoes.MicrosoftTeamsModel
+@{
+    ViewData["Title"] = "Microsoft Teams";
+}
+
+<!-- Hero -->
+<section class="hero-gradient text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+        <span class="inline-block bg-white/10 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Soluções</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Microsoft Teams</h1>
+        <p class="text-blue-200 text-lg">Implementação e suporte completo para o ecossistema Teams</p>
+    </div>
+</section>
+
+<!-- Visão geral -->
+<section class="py-16 px-4 bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+                <span class="inline-block bg-smv-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Visão Geral</span>
+                <h2 class="text-3xl font-bold text-smv-text mb-5">Uma fonte unificada para voz, rede e dispositivos Teams</h2>
+                <p class="text-smv-gray leading-relaxed mb-4">
+                    A SMV Telecom oferece um portfólio completo de produtos e serviços que simplifica a habilitação de voz no Microsoft Teams — integrando telefones IP, soluções de sala, elementos de voz ponta a ponta e expertise em consultoria para implementações do Microsoft 365.
+                </p>
+                <p class="text-smv-gray leading-relaxed mb-8">
+                    Nossas soluções atendem tanto ambientes on-premises quanto arquiteturas de rede baseadas em nuvem, com gerenciamento centralizado de TI e cobertura completa de portfólio para todos os tipos de sala.
+                </p>
+                <a href="/#contato" class="inline-block bg-smv-accent hover:bg-smv-accentDark text-white font-semibold px-8 py-3.5 rounded-full transition-colors">
+                    Solicitar Consultoria
+                </a>
+            </div>
+            <div class="flex justify-center">
+                <img src="~/images/teams-ecosystem.png" alt="Microsoft Teams Ecosystem"
+                     class="w-full max-w-sm object-contain" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AudioCodes One Voice -->
+<section class="py-16 px-4 bg-smv-bg">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div class="order-2 lg:order-1 space-y-4">
+                @foreach (var item in new[] {
+                    new { Titulo = "Telefones IP Certificados",    Desc = "Linha completa de telefones IP certificados para Microsoft Teams, com interface nativa e experiência de usuário integrada." },
+                    new { Titulo = "Soluções de Sala (MTR)",       Desc = "Microsoft Teams Rooms em Android com barras de colaboração all-in-one para salas de qualquer tamanho." },
+                    new { Titulo = "Elementos de Voz Ponta a Ponta", Desc = "SBCs, gateways de mídia e Session Border Controllers para toda a infraestrutura de voz." },
+                    new { Titulo = "Consultoria Microsoft 365",    Desc = "Expertise em implementações de voz para Microsoft 365, tanto on-premises quanto em nuvem." },
+                })
+                {
+                <div class="flex items-start gap-4 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <div class="w-10 h-10 bg-smv-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-smv-text">@item.Titulo</p>
+                        <p class="text-smv-gray text-sm mt-1 leading-relaxed">@item.Desc</p>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="order-1 lg:order-2">
+                <span class="inline-block bg-smv-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">AudioCodes One Voice</span>
+                <h2 class="text-3xl font-bold text-smv-text mb-5">Portfólio completo para habilitação de voz no Teams</h2>
+                <p class="text-smv-gray leading-relaxed">
+                    O AudioCodes One Voice for Microsoft Teams é um portfólio abrangente de produtos e serviços que simplifica toda a jornada de habilitação de voz — desde a consultoria inicial até o suporte contínuo, passando pela implantação de telefones, SBCs e gateways.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Direct Routing -->
+<section class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+                <span class="inline-block bg-smv-accent text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Direct Routing</span>
+                <h2 class="text-3xl font-bold text-smv-text mb-5">Conecte o Teams à sua operadora local</h2>
+                <p class="text-smv-gray leading-relaxed mb-4">
+                    O Direct Routing permite que clientes Microsoft Teams se conectem a provedores PSTN locais ou SIP trunks através de Session Border Controllers (SBCs) certificados pela Microsoft.
+                </p>
+                <p class="text-smv-gray leading-relaxed mb-6">
+                    A solução suporta cenários single-tenant e multi-tenant, com opções de implantação flexíveis para atender empresas de qualquer porte — preservando o investimento existente em infraestrutura de voz.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-smv-bg text-smv-primary text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200">SBC Certificado</span>
+                    <span class="bg-smv-bg text-smv-primary text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200">PSTN Local</span>
+                    <span class="bg-smv-bg text-smv-primary text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200">SIP Trunk</span>
+                    <span class="bg-smv-bg text-smv-primary text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200">Multi-tenant</span>
+                    <span class="bg-smv-bg text-smv-primary text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200">Single-tenant</span>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <img src="~/images/teams-direct-routing.png" alt="Direct Routing com Microsoft Teams"
+                     class="w-full max-w-md object-contain rounded-2xl" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Telefones IP certificados -->
+<section class="py-16 px-4 bg-smv-bg">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-10">
+            <span class="inline-block bg-smv-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Produtos</span>
+            <h2 class="text-2xl font-bold text-smv-text">Telefones IP Certificados para Microsoft Teams</h2>
+        </div>
+        @using SMVTelecom.Data
+        @{
+            var telefones = new[] {
+                new { Nome = "C435HD IP Phone",                       Img = "c435hd.webp",    Slug = "c435hd-ip-phone"           },
+                new { Nome = "C450HD IP Phone",                       Img = "c450hd.webp",    Slug = "c450hd-ip-phone"           },
+                new { Nome = "C455HD IP Phone",                       Img = "c455hd.webp",    Slug = "c455hd-ip-phone"           },
+                new { Nome = "C455HD IP Phone with Expansion Module", Img = "c455hdexp.webp", Slug = "c455hd-expansion-ip-phone" },
+                new { Nome = "C470HD IP Phone",                       Img = "c470hd.webp",    Slug = "c470hd-ip-phone"           },
+                new { Nome = "405HD IP Phone",                        Img = "405hd.webp",     Slug = "405hd-ip-phone"            },
+            };
+        }
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            @foreach (var p in telefones)
+            {
+            <div class="flex flex-col items-center text-center gap-3">
+                <div class="w-full aspect-square bg-white rounded-xl flex items-center justify-center overflow-hidden border border-gray-100 shadow-sm">
+                    <img src="~/images/produtos/@p.Img" alt="@p.Nome"
+                         class="w-full h-full object-contain p-4"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+                    <svg style="display:none" class="w-12 h-12 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <p class="font-bold text-smv-primary text-xs leading-snug">@p.Nome</p>
+                <a href="/Produto/@p.Slug" class="bg-smv-accent hover:bg-smv-accentDark text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors">
+                    Leia mais
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Media Gateways -->
+<section class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+                <span class="inline-block bg-smv-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Media Gateways</span>
+                <h2 class="text-3xl font-bold text-smv-text mb-5">Conectividade com infraestrutura legada</h2>
+                <p class="text-smv-gray leading-relaxed mb-4">
+                    Os gateways AudioCodes fornecem conectividade entre a infraestrutura de voz corporativa existente — dispositivos analógicos legados, PSTN, aplicações SIP — e o Microsoft Teams Direct Routing.
+                </p>
+                <p class="text-smv-gray leading-relaxed">
+                    Preserve o investimento em equipamentos legados enquanto migra gradualmente para o ecossistema Microsoft Teams, sem interrupções na comunicação da sua empresa.
+                </p>
+            </div>
+            <div class="flex justify-center">
+                <img src="~/images/teams-ecosystem-light.png" alt="Teams Media Gateways"
+                     class="w-full max-w-sm object-contain" />
+            </div>
+        </div>
+    </div>
+</section>

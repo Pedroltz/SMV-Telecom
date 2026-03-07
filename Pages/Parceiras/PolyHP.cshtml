@@ -1,0 +1,55 @@
+@page
+@model SMVTelecom.Pages.Parceiras.PolyHPModel
+@{
+    ViewData["Title"] = "Parceira Poly / HP";
+}
+
+<section class="hero-gradient text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+        <span class="inline-block bg-white/10 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Parceira</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Poly / HP</h1>
+        <p class="text-blue-200 text-lg">Headsets, speakerphones e câmeras para colaboração profissional</p>
+    </div>
+</section>
+
+<section class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-14 items-center">
+        <div class="flex-1">
+            <h2 class="text-3xl font-bold text-smv-text mb-6">Poly — Agora parte da HP</h2>
+            <p class="text-smv-gray leading-relaxed mb-4">
+                A Poly (antiga Plantronics / Polycom), agora parte do portfólio da HP, é referência mundial em headsets, speakerphones, câmeras e sistemas de videoconferência para ambientes corporativos.
+            </p>
+            <p class="text-smv-gray leading-relaxed mb-6">
+                A SMV Telecom é parceira autorizada Poly/HP, oferecendo toda a linha de produtos de colaboração: headsets com cancelamento de ruído, speakerphones certificados e câmeras de alta definição para reuniões em qualquer escala.
+            </p>
+            <a href="/#contato" class="inline-block bg-smv-accent hover:bg-smv-accentDark text-white font-semibold px-8 py-3.5 rounded-full transition-colors">
+                Solicitar Demonstração
+            </a>
+        </div>
+        <div class="flex-1 grid grid-cols-2 gap-4">
+            @foreach (var item in new[] {
+                new { title="Headsets Poly", desc="Headsets com cancelamento de ruído ativo para home office e escritório." },
+                new { title="Speakerphones", desc="Sync 20, Sync 40, Sync 60 para salas de todos os tamanhos." },
+                new { title="Câmeras Eagle Eye", desc="Câmeras 4K com rastreamento automático de palestrante." },
+                new { title="Studio X Series", desc="Barras de vídeo tudo-em-um para salas Teams e Zoom." }
+            })
+            {
+                <div class="bg-smv-bg rounded-2xl p-5 border border-gray-100">
+                    <p class="font-semibold text-smv-text text-sm mb-1">@item.title</p>
+                    <p class="text-smv-gray text-xs leading-relaxed">@item.desc</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-16 px-4 bg-smv-accent text-white text-center">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4">Conheça os produtos Poly / HP</h2>
+        <p class="text-orange-100 mb-6">Entre em contato para uma demonstração ou proposta personalizada.</p>
+        <a href="https://wa.me/5511985152865" target="_blank" rel="noopener"
+           class="bg-white text-smv-accent font-bold px-8 py-3.5 rounded-full hover:bg-orange-50 transition-colors inline-block">
+            Falar no WhatsApp
+        </a>
+    </div>
+</section>

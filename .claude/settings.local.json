@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:smvtelecom.com)",
+      "Bash(rm:*)",
+      "Bash(dotnet build:*)",
+      "Bash(grep:*)"
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+@page
+@model SMVTelecom.Pages.ContatoModel
+@{
+    ViewData["Title"] = "Contato";
+}
+
+<!-- Hero -->
+<section class="hero-gradient text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Entre em Contato</h1>
+        <p class="text-blue-200 text-lg">Nossa equipe está pronta para atendê-lo</p>
+    </div>
+</section>
+
+<!-- Contato -->
+<section class="py-20 px-4 bg-smv-bg">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Info -->
+        <div>
+            <h2 class="text-2xl font-bold text-smv-text mb-6">Fale com a SMV Telecom</h2>
+            <p class="text-smv-gray leading-relaxed mb-8">
+                Estamos prontos para ajudar sua empresa a encontrar a solução de comunicação ideal.
+                Entre em contato por qualquer um dos canais abaixo.
+            </p>
+            <div class="space-y-5">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-smv-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-smv-text">WhatsApp</p>
+                        <a href="https://wa.me/5511985152865" target="_blank" rel="noopener"
+                           class="text-smv-primary hover:underline">+55 11 98515-2865</a>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-smv-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-smv-text">E-mail</p>
+                        <a href="mailto:contato@smvtelecom.com" class="text-smv-primary hover:underline">contato@smvtelecom.com</a>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-smv-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-smv-text">Localização</p>
+                        <p class="text-smv-gray">São Paulo, SP — Brasil</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-smv-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-smv-text">Horário de Atendimento</p>
+                        <p class="text-smv-gray">Seg – Sex: 8h às 18h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            <h3 class="text-xl font-bold text-smv-text mb-6">Envie sua mensagem</h3>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-smv-text mb-1.5">Nome completo</label>
+                    <input type="text" placeholder="Seu nome"
+                           class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-smv-accent focus:border-transparent transition" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-smv-text mb-1.5">E-mail</label>
+                    <input type="email" placeholder="seu@email.com"
+                           class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-smv-accent focus:border-transparent transition" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-smv-text mb-1.5">Telefone / WhatsApp</label>
+                    <input type="tel" placeholder="(11) 99999-9999"
+                           class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-smv-accent focus:border-transparent transition" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-smv-text mb-1.5">Assunto</label>
+                    <select class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-smv-accent focus:border-transparent transition text-gray-500">
+                        <option value="" disabled selected>Selecione o assunto</option>
+                        <option>Videoconferência</option>
+                        <option>Áudio Profissional</option>
+                        <option>Telefones IP</option>
+                        <option>Microsoft Teams</option>
+                        <option>Outro</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-smv-text mb-1.5">Mensagem</label>
+                    <textarea rows="4" placeholder="Descreva sua necessidade..."
+                              class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-smv-accent focus:border-transparent transition resize-none"></textarea>
+                </div>
+                <button type="button"
+                        class="w-full bg-smv-accent hover:bg-smv-accentDark text-white font-semibold py-3.5 rounded-xl transition-colors">
+                    Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

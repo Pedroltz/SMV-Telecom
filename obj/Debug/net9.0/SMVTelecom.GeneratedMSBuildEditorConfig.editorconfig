@@ -1,0 +1,81 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SMVTelecom
+build_property.RootNamespace = SMVTelecom
+build_property.ProjectDir = C:\Users\Usuario\Documents\Projetos\SMV Telecom\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Usuario\Documents\Projetos\SMV Telecom
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Contato.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGF0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Parceiras/AudioCodes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFyY2VpcmFzXEF1ZGlvQ29kZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Parceiras/Logitech.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFyY2VpcmFzXExvZ2l0ZWNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Parceiras/PolyHP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFyY2VpcmFzXFBvbHlIUC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Produto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHV0b1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/QuemSomos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUXVlbVNvbW9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Solucoes/Audio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29sdWNvZXNcQXVkaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Solucoes/MicrosoftTeams.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29sdWNvZXNcTWljcm9zb2Z0VGVhbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Solucoes/Telefones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29sdWNvZXNcVGVsZWZvbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Solucoes/Videoconferencia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29sdWNvZXNcVmlkZW9jb25mZXJlbmNpYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Documents/Projetos/SMV Telecom/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-uzfa8c86e0

@@ -1,0 +1,178 @@
+@page "/Produto/{slug}"
+@model SMVTelecom.Pages.Produto.IndexModel
+@{
+    ViewData["Title"] = Model.Item.Nome;
+    var p = Model.Item;
+    var categoriaUrl = p.Categoria == "Videoconferência" ? "Videoconferencia"
+                     : p.Categoria == "Áudio"           ? "Audio"
+                     : "Telefones";
+}
+
+<!-- Hero compacto -->
+<section class="hero-gradient text-white py-12 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+        <nav class="text-blue-200/70 text-xs mb-3">
+            <a href="/" class="hover:text-white transition-colors">Início</a>
+            <span class="mx-2">›</span>
+            <a href="/Parceiras/@p.Marca.Replace(" / HP","HP").Replace(" ","").Replace("/","")" class="hover:text-white transition-colors">@p.Marca</a>
+            <span class="mx-2">›</span>
+            <span class="text-blue-200">@p.Nome</span>
+        </nav>
+        <h1 class="text-3xl sm:text-4xl font-extrabold">@p.Nome</h1>
+    </div>
+</section>
+
+<!-- Produto detail -->
+<section class="py-12 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            <!-- Imagem -->
+            <div class="w-full aspect-square bg-smv-bg rounded-2xl flex items-center justify-center overflow-hidden border border-gray-100 shadow-sm">
+                <img src="~/images/produtos/@p.Img" alt="@p.Nome"
+                     class="w-full h-full object-contain p-10"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div style="display:none" class="w-full h-full items-center justify-center">
+                    <svg class="w-24 h-24 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="flex flex-col gap-5">
+                <!-- Badges -->
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-smv-primary text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">@p.Marca</span>
+                    <span class="bg-smv-bg text-smv-primary text-xs font-semibold px-3 py-1 rounded-full border border-gray-200">@p.Categoria</span>
+                </div>
+
+                <h2 class="text-2xl font-bold text-smv-text leading-snug">@p.Nome</h2>
+                <p class="text-smv-gray leading-relaxed text-sm">@p.Descricao</p>
+
+                <!-- Features -->
+                @if (p.Features.Length > 0)
+                {
+                <div class="bg-smv-bg rounded-2xl p-5 border border-gray-100">
+                    <h3 class="text-xs font-bold text-smv-text uppercase tracking-wider mb-4">Características</h3>
+                    <ul class="space-y-2.5">
+                        @foreach (var f in p.Features)
+                        {
+                        <li class="flex items-start gap-3">
+                            <div class="w-4 h-4 bg-smv-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-smv-gray text-sm leading-relaxed">@f</span>
+                        </li>
+                        }
+                    </ul>
+                </div>
+                }
+
+                <!-- CTA -->
+                <div class="pt-2">
+                    <a href="/#contato"
+                       class="inline-block bg-smv-accent hover:bg-smv-accentDark text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção Descrição — full width, estilo WooCommerce -->
+@if (!string.IsNullOrEmpty(p.DescricaoLonga))
+{
+<section class="px-4 bg-white border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+        <!-- Tab header -->
+        <div class="border-b border-gray-200 mb-8">
+            <span class="inline-block border-b-2 border-smv-text text-smv-text font-semibold text-sm px-4 py-3 -mb-px">
+                Descrição
+            </span>
+        </div>
+        <!-- Conteúdo -->
+        <div class="pb-12 max-w-4xl">
+            <h2 class="text-2xl font-bold text-smv-text mb-6">Descrição</h2>
+            <div class="space-y-4">
+                @foreach (var para in p.DescricaoLonga.Split("\n\n", StringSplitOptions.RemoveEmptyEntries))
+                {
+                    <p class="text-smv-gray leading-relaxed text-sm">@para</p>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+}
+
+<!-- Veja Também — carrossel horizontal -->
+@if (Model.MaisItens.Count > 0)
+{
+<section class="py-12 px-4 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Cabeçalho -->
+        <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-1 h-7 bg-smv-accent rounded-full"></div>
+                <h2 class="text-xl font-bold text-smv-text">Mais produtos em <span class="text-smv-accent">@p.Categoria</span></h2>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="scrollCarousel(-1)"
+                        class="w-9 h-9 rounded-full border border-gray-200 bg-white hover:bg-smv-primary hover:border-smv-primary hover:text-white text-smv-gray flex items-center justify-center transition-colors shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button onclick="scrollCarousel(1)"
+                        class="w-9 h-9 rounded-full border border-gray-200 bg-white hover:bg-smv-primary hover:border-smv-primary hover:text-white text-smv-gray flex items-center justify-center transition-colors shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Trilho scrollável -->
+        <div id="carousel-track"
+             class="flex gap-4 overflow-x-auto scroll-smooth pb-2"
+             style="scrollbar-width: none; -ms-overflow-style: none;">
+            @foreach (var rel in Model.MaisItens)
+            {
+            <a href="/Produto/@rel.Slug"
+               class="group flex-none flex flex-col bg-white rounded-xl border border-gray-200 hover:border-smv-primary hover:shadow-lg transition-all duration-200 overflow-hidden"
+               style="width: 180px;">
+                <div class="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden p-3 border-b border-gray-100">
+                    <img src="~/images/produtos/@rel.Img" alt="@rel.Nome"
+                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+                    <svg style="display:none" class="w-10 h-10 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col flex-1 p-3 gap-1.5">
+                    <p class="text-xs font-medium text-smv-text leading-snug line-clamp-2 group-hover:text-smv-primary transition-colors" style="min-height: 2.5rem;">@rel.Nome</p>
+                    <p class="text-[10px] text-smv-gray">@rel.Marca</p>
+                    <div class="mt-auto pt-2">
+                        <span class="inline-block w-full text-center bg-smv-accent group-hover:bg-smv-accentDark text-white text-[10px] font-bold uppercase tracking-wide px-2 py-1.5 rounded-lg transition-colors">
+                            Ver produto
+                        </span>
+                    </div>
+                </div>
+            </a>
+            }
+        </div>
+    </div>
+</section>
+
+<style>#carousel-track::-webkit-scrollbar { display: none; }</style>
+<script>
+    function scrollCarousel(dir) {
+        const track = document.getElementById('carousel-track');
+        track.scrollBy({ left: dir * 600, behavior: 'smooth' });
+    }
+</script>
+}

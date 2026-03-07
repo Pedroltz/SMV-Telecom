@@ -1,0 +1,62 @@
+@page
+@model SMVTelecom.Pages.Parceiras.AudioCodesModel
+@{
+    ViewData["Title"] = "Parceira AudioCodes";
+}
+
+<section class="hero-gradient text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+        <span class="inline-block bg-white/10 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Parceira</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">AudioCodes</h1>
+        <p class="text-blue-200 text-lg">Infraestrutura de voz e redes para comunicação corporativa</p>
+    </div>
+</section>
+
+<section class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-14 items-center">
+        <div class="flex-1">
+            <h2 class="text-3xl font-bold text-smv-text mb-6">AudioCodes — Infraestrutura de Voz</h2>
+            <p class="text-smv-gray leading-relaxed mb-4">
+                A AudioCodes é uma empresa líder global em soluções de rede e voz para comunicações unificadas. Seus produtos são amplamente utilizados em ambientes Microsoft Teams, oferecendo Session Border Controllers (SBCs), gateways de voz e telefones IP certificados.
+            </p>
+            <p class="text-smv-gray leading-relaxed mb-6">
+                Como parceira AudioCodes, a SMV Telecom oferece implementação completa de Direct Routing para Microsoft Teams, integração com PSTN e soluções de telefonia corporativa avançada.
+            </p>
+            <a href="/#contato" class="inline-block bg-smv-accent hover:bg-smv-accentDark text-white font-semibold px-8 py-3.5 rounded-full transition-colors">
+                Solicitar Proposta
+            </a>
+        </div>
+        <div class="flex-1 space-y-4">
+            @foreach (var item in new[] {
+                new { title="Session Border Controllers (SBC)", desc="SBCs para Direct Routing Microsoft Teams e comunicações unificadas." },
+                new { title="Gateways de Voz", desc="Gateways analógicos e digitais para integração PSTN." },
+                new { title="Telefones IP Teams", desc="Handsets certificados para Microsoft Teams Phone." },
+                new { title="Microsoft 365", desc="Integração nativa com o ecossistema Microsoft 365." }
+            })
+            {
+                <div class="flex items-start gap-4 p-5 bg-smv-bg rounded-2xl border border-gray-100">
+                    <div class="w-10 h-10 bg-smv-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-smv-text">@item.title</p>
+                        <p class="text-smv-gray text-sm mt-1">@item.desc</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-16 px-4 bg-smv-accent text-white text-center">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4">Implemente AudioCodes na sua empresa</h2>
+        <p class="text-orange-100 mb-6">Fale com nossos especialistas para uma proposta personalizada.</p>
+        <a href="https://wa.me/5511985152865" target="_blank" rel="noopener"
+           class="bg-white text-smv-accent font-bold px-8 py-3.5 rounded-full hover:bg-orange-50 transition-colors inline-block">
+            Falar no WhatsApp
+        </a>
+    </div>
+</section>
