@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SMVTelecom")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cdeff04223c655eb2271d68ea794f0add84f6d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SMVTelecom")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SMVTelecom")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -94,3 +94,11 @@ C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\SMVTelecom.pdb
 C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\SMVTelecom.genruntimeconfig.cache
 C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\ref\SMVTelecom.dll
 C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\compressed\uld7dyogcs-2lh810rs6e.gz
+C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\SMVTelecom.sourcelink.json
+C:\Users\Usuario\Documents\Projetos\SMV Telecom\bin\Debug\net9.0\Data\produtos-extra.json
+C:\Users\Usuario\Documents\Projetos\SMV Telecom\bin\Debug\net9.0\Data\site-config.json
+C:\Users\Usuario\Documents\Projetos\SMV Telecom\bin\Debug\net9.0\Data\users.json
+C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\compressed\1cldenam5u-7nqqdejrck.gz
+C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\compressed\vwae5aqcgb-l43lxukp03.gz
+C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\compressed\hu6h3yrjd1-kq2xdrirmj.gz
+C:\Users\Usuario\Documents\Projetos\SMV Telecom\obj\Debug\net9.0\compressed\kkvssbgzbx-mhxrc4k1r4.gz

@@ -1,52 +1,208 @@
 @page
 @model SMVTelecom.Pages.Parceiras.LogitechModel
+@using SMVTelecom.Services
+@inject ProdutoService _prodSvc
+@inject SiteConfigService _siteCfg
 @{
     ViewData["Title"] = "Parceira Logitech";
+    var produtos = _prodSvc.Todos.Where(p => p.Marca == "Logitech").ToList();
+    var wa = "5519997573053";
 }
 
-<section class="hero-gradient text-white py-20 px-4 text-center">
-    <div class="max-w-3xl mx-auto">
-        <span class="inline-block bg-white/10 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Parceira</span>
-        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Logitech</h1>
-        <p class="text-blue-200 text-lg">Soluções de colaboração para o local de trabalho moderno</p>
+<!-- ═══ HERO ═══ -->
+<section class="relative bg-[#0a0a0a] text-white overflow-hidden min-h-[300px] sm:min-h-[520px] flex items-center">
+    <!-- fundo com textura sutil -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111827] to-[#042C71]/60"></div>
+    <div class="absolute inset-0" style="background-image:radial-gradient(circle at 70% 50%, rgba(4,44,113,0.35) 0%, transparent 60%)"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-20 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <!-- texto -->
+        <div>
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-white/10 border border-white/20 text-white/70 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full">Parceira Oficial</span>
+                <span class="bg-smv-accent text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Authorized Reseller</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black mb-4 tracking-tight">
+                Logitech
+                <span class="block text-xl sm:text-3xl font-semibold text-white/50 mt-1">for Business</span>
+            </h1>
+            <p class="text-white/70 text-lg leading-relaxed mb-8 max-w-lg">
+                Soluções certificadas para Microsoft Teams, Zoom e Google Meet. A SMV Telecom é parceira autorizada Logitech — do planejamento à instalação.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <a href="/#contato"
+                   class="bg-smv-accent hover:bg-smv-accentDark text-white font-bold px-7 py-3.5 rounded-full transition-colors inline-flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                    Solicitar Demonstração
+                </a>
+                <a href="/Solucoes/Videoconferencia"
+                   class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-7 py-3.5 rounded-full transition-colors">
+                    Ver Soluções
+                </a>
+            </div>
+        </div>
+        <!-- produto hero -->
+        <div class="flex items-center justify-center lg:justify-end">
+            <div class="relative">
+                <div class="absolute -inset-8 bg-smv-accent/10 rounded-full blur-3xl"></div>
+                <img src="/images/produtos/rallybar.webp" alt="Logitech Rally Bar"
+                     class="relative w-full max-w-sm lg:max-w-md object-contain drop-shadow-2xl"
+                     onerror="this.style.display='none'" />
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="py-20 px-4 bg-white">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-14 items-center">
-        <div class="flex-1">
-            <h2 class="text-3xl font-bold text-smv-text mb-6">Logitech para Ambientes Corporativos</h2>
-            <p class="text-smv-gray leading-relaxed mb-4">
-                A Logitech é líder global em periféricos e soluções de colaboração para videoconferência. Seus produtos são certificados para Microsoft Teams, Zoom e Google Meet, garantindo a melhor experiência de reunião.
-            </p>
-            <p class="text-smv-gray leading-relaxed mb-6">
-                A SMV Telecom é parceira autorizada Logitech, oferecendo toda a linha de produtos para videoconferência: barras Rally, sistemas Tap, câmeras PTZ e muito mais.
-            </p>
-            <a href="/#contato" class="inline-block bg-smv-accent hover:bg-smv-accentDark text-white font-semibold px-8 py-3.5 rounded-full transition-colors">
-                Solicitar Demonstração
-            </a>
+<!-- ═══ STATS ═══ -->
+<div class="bg-smv-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+            <p class="text-3xl font-black text-smv-accent">+15</p>
+            <p class="text-white/60 text-sm mt-0.5">Produtos disponíveis</p>
         </div>
-        <div class="flex-1 grid grid-cols-2 gap-4">
-            @foreach (var item in new[] {
-                "Rally Bar", "Rally Bar Mini", "Rally Camera", "Tap IP",
-                "Sight", "Scribe", "Zone Wireless", "MeetUp"
-            })
-            {
-                <div class="bg-smv-bg rounded-xl p-4 border border-gray-100 text-center">
-                    <p class="font-semibold text-smv-text text-sm">@item</p>
+        <div>
+            <p class="text-3xl font-black text-smv-accent">3</p>
+            <p class="text-white/60 text-sm mt-0.5">Plataformas certificadas</p>
+        </div>
+        <div>
+            <p class="text-3xl font-black text-smv-accent">4K</p>
+            <p class="text-white/60 text-sm mt-0.5">Qualidade de vídeo</p>
+        </div>
+        <div>
+            <p class="text-3xl font-black text-smv-accent">360°</p>
+            <p class="text-white/60 text-sm mt-0.5">Cobertura de câmera</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ SOBRE ═══ -->
+<section class="py-12 lg:py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <!-- imagem lateral -->
+        <div class="order-2 lg:order-1 grid grid-cols-2 gap-4">
+            <div class="bg-smv-bg rounded-2xl p-4 flex items-center justify-center aspect-square border border-gray-100">
+                <img src="/images/produtos/scribe.png" alt="Logitech Scribe" class="w-full h-full object-contain p-2" onerror="this.src=''" />
+            </div>
+            <div class="bg-[#0a0a0a] rounded-2xl p-4 flex items-center justify-center aspect-square">
+                <img src="/images/produtos/rallybarmini.png" alt="Rally Bar Mini" class="w-full h-full object-contain p-2" onerror="this.src=''" />
+            </div>
+            <div class="bg-smv-primary rounded-2xl p-4 flex items-center justify-center aspect-square">
+                <img src="/images/produtos/zonewireless2.webp" alt="Zone Wireless 2" class="w-full h-full object-contain p-2" onerror="this.src=''" />
+            </div>
+            <div class="bg-smv-bg rounded-2xl p-4 flex items-center justify-center aspect-square border border-gray-100">
+                <img src="/images/produtos/rallyhuddle.webp" alt="Rally Bar Huddle" class="w-full h-full object-contain p-2" onerror="this.src=''" />
+            </div>
+        </div>
+
+        <!-- texto -->
+        <div class="order-1 lg:order-2">
+            <span class="inline-block text-smv-accent font-bold text-xs uppercase tracking-widest mb-3">Por que Logitech?</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-smv-text mb-6 leading-tight">
+                A escolha das maiores<br/>empresas do mundo
+            </h2>
+            <p class="text-smv-gray leading-relaxed mb-6">
+                Líder global em periféricos e soluções de colaboração, a Logitech oferece hardware premium certificado para os principais sistemas de videoconferência. De salas pequenas a auditórios, há uma solução Rally para cada ambiente.
+            </p>
+            <ul class="space-y-3 mb-8">
+                @foreach (var item in new[] {
+                    "Certificação Microsoft Teams, Zoom e Google Meet",
+                    "Câmeras com rastreamento automático por IA",
+                    "Barras Rally para salas de qualquer tamanho",
+                    "Headsets e fones profissionais com cancelamento de ruído",
+                    "Instalação e configuração pela SMV Telecom"
+                })
+                {
+                    <li class="flex items-center gap-3">
+                        <div class="w-5 h-5 bg-smv-accent rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-smv-gray text-sm">@item</span>
+                    </li>
+                }
+            </ul>
+            <div class="flex items-center gap-4 bg-smv-bg rounded-2xl p-4 border border-gray-100">
+                <div class="w-12 h-12 bg-smv-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                    </svg>
                 </div>
+                <div>
+                    <p class="font-bold text-smv-text text-sm">Parceira Autorizada Logitech</p>
+                    <p class="text-smv-gray text-xs">Revenda e suporte técnico oficial no Brasil</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PRODUTOS ═══ -->
+<section class="py-12 lg:py-20 px-4 bg-smv-bg">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="inline-block text-smv-accent font-bold text-xs uppercase tracking-widest mb-3">Catálogo</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-smv-text">Produtos Logitech disponíveis</h2>
+            <p class="text-smv-gray mt-3">Clique em qualquer produto para ver detalhes, especificações e solicitar orçamento.</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            @foreach (var p in produtos)
+            {
+                <a href="/Produto/@p.Slug"
+                   class="group bg-white rounded-2xl border border-gray-100 hover:border-smv-primary/30 hover:shadow-lg transition-all duration-200 overflow-hidden flex flex-col">
+                    <div class="bg-smv-bg/60 p-4 flex items-center justify-center h-36">
+                        @if (!string.IsNullOrEmpty(p.Img))
+                        {
+                            <img src="/images/produtos/@p.Img" alt="@p.Nome"
+                                 class="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-200"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                            <div class="hidden w-full h-full items-center justify-center">
+                                <svg class="w-10 h-10 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                        }
+                    </div>
+                    <div class="p-3 flex flex-col flex-1">
+                        <p class="text-xs text-smv-accent font-semibold uppercase tracking-wide">@p.Categoria</p>
+                        <p class="text-smv-text font-semibold text-sm mt-0.5 leading-snug flex-1">@p.Nome</p>
+                        <div class="mt-2 flex items-center text-smv-primary text-xs font-semibold group-hover:gap-2 transition-all gap-1">
+                            Ver detalhes
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
             }
         </div>
     </div>
 </section>
 
-<section class="py-16 px-4 bg-smv-accent text-white text-center">
-    <div class="max-w-2xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4">Conheça os produtos Logitech</h2>
-        <p class="text-orange-100 mb-6">Entre em contato com nossos especialistas para uma demonstração.</p>
-        <a href="https://wa.me/5511985152865" target="_blank" rel="noopener"
-           class="bg-white text-smv-accent font-bold px-8 py-3.5 rounded-full hover:bg-orange-50 transition-colors inline-block">
-            Falar no WhatsApp
-        </a>
+<!-- ═══ CTA ═══ -->
+<section class="py-12 lg:py-20 px-4 bg-smv-primary relative overflow-hidden">
+    <div class="absolute inset-0" style="background-image:radial-gradient(circle at 20% 50%, rgba(206,73,18,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 40%)"></div>
+    <div class="relative max-w-4xl mx-auto text-center text-white">
+        <span class="inline-block bg-white/10 border border-white/20 text-white/70 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">Fale com um especialista</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Pronto para modernizar<br/>suas salas de reunião?</h2>
+        <p class="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
+            Nossa equipe apresenta as melhores soluções Logitech para o perfil da sua empresa, com projeto, instalação e suporte.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://wa.me/@wa" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1db954] text-white font-bold px-8 py-4 rounded-full transition-colors shadow-lg">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Falar no WhatsApp
+            </a>
+            <a href="/#contato"
+               class="inline-flex items-center gap-2 bg-smv-accent hover:bg-smv-accentDark text-white font-bold px-8 py-4 rounded-full transition-colors">
+                Solicitar Proposta
+            </a>
+        </div>
     </div>
 </section>
