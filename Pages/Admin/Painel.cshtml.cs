@@ -7,9 +7,10 @@ namespace SMVTelecom.Pages.Admin;
 
 public class PainelModel : PageModel
 {
-    private readonly SiteConfigService _cfg;
-    private readonly AdminAuthService  _auth;
-    private readonly ProdutoService    _prod;
+    private readonly SiteConfigService  _cfg;
+    private readonly AdminAuthService   _auth;
+    private readonly ProdutoService     _prod;
+    private readonly IWebHostEnvironment _env;
 
     public SiteConfig Config    { get; private set; } = new();
     public List<string> Users   { get; private set; } = new();
@@ -18,11 +19,12 @@ public class PainelModel : PageModel
     public string? Mensagem     { get; set; }
     public string? MensagemTipo { get; set; } // "ok" | "erro"
 
-    public PainelModel(SiteConfigService cfg, AdminAuthService auth, ProdutoService prod)
+    public PainelModel(SiteConfigService cfg, AdminAuthService auth, ProdutoService prod, IWebHostEnvironment env)
     {
         _cfg  = cfg;
         _auth = auth;
         _prod = prod;
+        _env  = env;
     }
 
     private IActionResult CheckAuth()
@@ -37,6 +39,24 @@ public class PainelModel : PageModel
         Config = _cfg.Config;
         Users  = _auth.GetEmails();
         Todos  = _prod.Todos.ToList();
+    }
+
+    // Salva o arquivo enviado em wwwroot/images/produtos/ e retorna o nome do arquivo.
+    // Se nenhum arquivo for enviado, retorna o valor do campo de texto (img).
+    private string SaveImage(IFormFile? imgFile, string slug, string imgTexto)
+    {
+        if (imgFile is null || imgFile.Length == 0)
+            return imgTexto.Trim();
+
+        var ext      = Path.GetExtension(imgFile.FileName).ToLowerInvariant();
+        var fileName = slug.Trim().ToLower() + ext;
+        var dir      = Path.Combine(_env.WebRootPath, "images", "produtos");
+        Directory.CreateDirectory(dir);
+
+        using var stream = System.IO.File.Create(Path.Combine(dir, fileName));
+        imgFile.CopyTo(stream);
+
+        return fileName;
     }
 
     public IActionResult OnGet()
@@ -89,20 +109,21 @@ public class PainelModel : PageModel
     public IActionResult OnPostAdicionarProduto(
         string slug, string nome, string marca, string categoria,
         string img, string descricao, string descricaoLonga,
-        string features, string relacionados)
+        string features, string relacionados,
+        IFormFile? imgFile)
     {
         var r = CheckAuth(); if (r is not null) return r;
         var produto = new SMVTelecom.Data.Produto
         {
-            Slug          = slug.Trim().ToLower(),
-            Nome          = nome.Trim(),
-            Marca         = marca.Trim(),
-            Categoria     = categoria,
-            Img           = img.Trim(),
-            Descricao     = descricao.Trim(),
+            Slug           = slug.Trim().ToLower(),
+            Nome           = nome.Trim(),
+            Marca          = marca.Trim(),
+            Categoria      = categoria,
+            Img            = SaveImage(imgFile, slug, img),
+            Descricao      = descricao.Trim(),
             DescricaoLonga = descricaoLonga.Trim(),
-            Features      = features.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries),
-            Relacionados  = relacionados.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries),
+            Features       = features.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries),
+            Relacionados   = relacionados.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries),
         };
         _prod.Add(produto);
         Mensagem = $"Produto \"{nome}\" adicionado."; MensagemTipo = "ok";
@@ -115,7 +136,33 @@ public class PainelModel : PageModel
         if (_prod.Delete(slugRemover))
         { Mensagem = "Produto removido."; MensagemTipo = "ok"; }
         else
-        { Mensagem = "Produto não encontrado ou é estático."; MensagemTipo = "erro"; }
+        { Mensagem = "Produto não encontrado."; MensagemTipo = "erro"; }
+        Load(); return Page();
+    }
+
+    public IActionResult OnPostEditarProduto(
+        string slug, string nome, string marca, string categoria,
+        string img, string descricao, string descricaoLonga,
+        string features, string relacionados,
+        IFormFile? imgFile)
+    {
+        var r = CheckAuth(); if (r is not null) return r;
+        var produto = new SMVTelecom.Data.Produto
+        {
+            Slug           = slug.Trim().ToLower(),
+            Nome           = nome.Trim(),
+            Marca          = marca.Trim(),
+            Categoria      = categoria,
+            Img            = SaveImage(imgFile, slug, img),
+            Descricao      = descricao.Trim(),
+            DescricaoLonga = descricaoLonga.Trim(),
+            Features       = features.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries),
+            Relacionados   = relacionados.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries),
+        };
+        if (_prod.Update(produto))
+        { Mensagem = $"Produto \"{nome}\" atualizado."; MensagemTipo = "ok"; }
+        else
+        { Mensagem = "Produto não encontrado."; MensagemTipo = "erro"; }
         Load(); return Page();
     }
 

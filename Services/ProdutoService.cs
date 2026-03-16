@@ -7,6 +7,7 @@ namespace SMVTelecom.Services;
 public class ProdutoService
 {
     private readonly string _extraPath;
+    private readonly string _removidosPath;
     private List<Produto> _todos;
 
     private static readonly JsonSerializerOptions _opts = new()
@@ -17,7 +18,9 @@ public class ProdutoService
 
     public ProdutoService(IWebHostEnvironment env)
     {
-        _extraPath = Path.Combine(env.ContentRootPath, "data", "produtos-extra.json");
+        var data = Path.Combine(env.ContentRootPath, "data");
+        _extraPath    = Path.Combine(data, "produtos-extra.json");
+        _removidosPath = Path.Combine(data, "produtos-removidos.json");
         _todos = Build();
     }
 
@@ -36,6 +39,7 @@ public class ProdutoService
             .Cast<Produto>()
             .ToList();
 
+    // Produto adicionado/editado via admin (não é estático original)
     public bool IsExtra(string slug) =>
         LoadExtras().Any(p => p.Slug.Equals(slug, StringComparison.OrdinalIgnoreCase));
 
@@ -47,26 +51,61 @@ public class ProdutoService
         _todos = Build();
     }
 
-    public void Update(Produto produto)
+    public bool Update(Produto produto)
     {
-        var extras = LoadExtras();
+        var extras   = LoadExtras();
+        var removidos = LoadRemovidos();
         var i = extras.FindIndex(p => p.Slug == produto.Slug);
-        if (i >= 0) extras[i] = produto;
+
+        if (i >= 0)
+        {
+            // É um extra — atualiza direto
+            extras[i] = produto;
+        }
+        else if (ProdutoCatalog.Todos.Any(p => p.Slug == produto.Slug))
+        {
+            // É estático — adiciona override em extras e marca o original como removido
+            extras.Add(produto);
+            if (!removidos.Contains(produto.Slug))
+            {
+                removidos.Add(produto.Slug);
+                SaveRemovidos(removidos);
+            }
+        }
+        else return false;
+
         SaveExtras(extras);
         _todos = Build();
+        return true;
     }
 
     public bool Delete(string slug)
     {
-        var extras = LoadExtras();
+        var extras    = LoadExtras();
+        var removidos = LoadRemovidos();
+
+        // Tenta remover de extras primeiro
         var ok = extras.RemoveAll(p => p.Slug == slug) > 0;
-        if (ok) { SaveExtras(extras); _todos = Build(); }
+        if (ok) SaveExtras(extras);
+
+        // Se é estático, adiciona à lista de removidos
+        if (ProdutoCatalog.Todos.Any(p => p.Slug == slug) && !removidos.Contains(slug))
+        {
+            removidos.Add(slug);
+            SaveRemovidos(removidos);
+            ok = true;
+        }
+
+        if (ok) _todos = Build();
         return ok;
     }
 
     private List<Produto> Build()
     {
-        var lista = new List<Produto>(ProdutoCatalog.Todos);
+        var removidos = LoadRemovidos();
+        var lista = ProdutoCatalog.Todos
+            .Where(p => !removidos.Contains(p.Slug))
+            .ToList();
         lista.AddRange(LoadExtras());
         return lista;
     }
@@ -82,5 +121,18 @@ public class ProdutoService
     {
         Directory.CreateDirectory(Path.GetDirectoryName(_extraPath)!);
         File.WriteAllText(_extraPath, JsonSerializer.Serialize(extras, _opts));
+    }
+
+    private List<string> LoadRemovidos()
+    {
+        if (!File.Exists(_removidosPath)) return new();
+        try { return JsonSerializer.Deserialize<List<string>>(File.ReadAllText(_removidosPath)) ?? new(); }
+        catch { return new(); }
+    }
+
+    private void SaveRemovidos(List<string> removidos)
+    {
+        Directory.CreateDirectory(Path.GetDirectoryName(_removidosPath)!);
+        File.WriteAllText(_removidosPath, JsonSerializer.Serialize(removidos, _opts));
     }
 }
